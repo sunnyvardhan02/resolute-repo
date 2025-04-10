@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>User Management</h2>
+
+  <div class="mb-3 d-flex justify-content-between">
+    <input type="text" class="form-control w-50" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search by name or email" />
+    <button class="btn btn-primary" (click)="addUser()">Add User</button>
+  </div>
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th (click)="changeSort('name')" style="cursor: pointer;">Name</th>
+        <th (click)="changeSort('email')" style="cursor: pointer;">Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of paginate(filteredUsers)">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button class="btn btn-sm btn-info" (click)="editUser(user.id)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-secondary" (click)="prevPage()" [disabled]="currentPage === 0">Previous</button>
+    <span>Page {{ currentPage + 1 }} of {{ (filteredUsers.length / pageSize) | ceil }}</span>
+    <button class="btn btn-secondary" (click)="nextPage()" [disabled]="(currentPage + 1) * pageSize >= filteredUsers.length">Next</button>
+  </div>
+</div>
