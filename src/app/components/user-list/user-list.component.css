@@ -2,22 +2,24 @@
   max-width: 1000px;
   margin: auto;
   background: #ffffff;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .header h2 {
+  font-size: 1.5rem;
   margin: 0;
-  font-size: 1.6rem;
-  font-weight: 600;
 }
 
 .header button {
@@ -32,6 +34,22 @@
 .search-box {
   margin-bottom: 1rem;
 }
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.top-bar .search-box {
+  flex: 1;
+}
+
+.top-bar .primary-btn {
+  white-space: nowrap;
+}
 
 .search-box input {
   width: 100%;
@@ -39,12 +57,14 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1rem;
+  font-size: 0.95rem;
 }
 
 table th,
@@ -60,17 +80,32 @@ table th {
   user-select: none;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .actions button {
-  margin-right: 0.5rem;
   padding: 0.4rem 0.7rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 0.9rem;
+}
+.float-right {
+  margin-left: auto;
 }
 
 .actions .edit-btn {
   background-color: #ffc107;
   color: white;
+}
+.actions .primary-btn {
+  background-color: #09ff00;
+  color: white;
+  padding: 12px;
+  margin-bottom: 16px;
 }
 
 .actions .delete-btn {
@@ -94,16 +129,41 @@ table th {
   cursor: pointer;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
   }
 
-  .actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tr {
+    margin-bottom: 1rem;
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  table td {
+    text-align: left;
+    padding-left: 30%;
+    position: relative;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 0.75rem;
+    font-weight: bold;
+    text-align: left;
   }
 }

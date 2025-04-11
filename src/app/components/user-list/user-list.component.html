@@ -1,10 +1,23 @@
 <div class="container">
   <h2>User Management</h2>
 
-  <div class="mb-3 d-flex justify-content-between">
-    <input type="text" class="form-control w-50" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search by name or email" />
-    <button class="btn btn-primary" (click)="addUser()">Add User</button>
+  <div class="top-bar">
+  <div class="search-box">
+    <input
+      type="text"
+      class="form-control w-100"
+      [(ngModel)]="searchTerm"
+      (input)="applyFilter()"
+      placeholder="Search by name or email"
+    />
   </div>
+  <div class="actions">
+    <button class="primary-btn" (click)="addUser()">Add User</button>
+  </div>
+</div>
+
+  
+  
 
   <table class="table table-bordered table-hover">
     <thead>
@@ -17,14 +30,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of paginate(filteredUsers)">
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.role }}</td>
-        <td>
-          <button class="btn btn-sm btn-info" (click)="editUser(user.id)">Edit</button>
-          <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">Delete</button>
+        <td data-label="Name">{{ user.name }}</td>
+        <td data-label="Email">{{ user.email }}</td>
+        <td data-label="Role">{{ user.role }}</td>
+        <td data-label="Actions" class="actions">
+          <button class="edit-btn" (click)="editUser(user.id)">Edit</button>
+          <button class="delete-btn" (click)="deleteUser(user.id)">Delete</button>
         </td>
       </tr>
+      
     </tbody>
   </table>
 
