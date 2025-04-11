@@ -1,31 +1,77 @@
-<<<<<<< HEAD
-# resolute-repo
-=======
-# UserManagementSystem
+# User Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+A simple and responsive **User Management System** built with **Angular 14**.  
+It allows users to **add**, **edit**, **delete**, **search**, **sort**, and **manage roles** with **localStorage-based persistence**. Styled using **pure CSS** (no Angular Material).
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ✨ Features
 
-## Code scaffolding
+- ✅ List users with pagination (10 per page)
+- 🔍 Search users by name or email
+- ↕️ Sort by name or email (asc/desc)
+- ➕ Add new users with validation
+- ✏️ Edit existing users
+- ❌ Delete users with confirmation
+- 🛡️ Role management (Admin/User)
+- 💾 Persistent data using localStorage
+- 📱 Responsive design (works on desktop & mobile)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 💻 How to Run Locally
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Follow these steps to run the project on your local machine:
 
-## Running unit tests
+### 1. Clone the repository
+```bash
+git clone https://github.com/sunnyvardhan02/resolute-repo.git
+cd resolute-repo
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. Install dependencies
+Make sure you have Node.js and Angular CLI installed. Then run:
+```bash
+npm install
+```
 
-## Running end-to-end tests
+### 3. Run the development server
+```bash
+ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 4. Open in browser
+Visit [http://localhost:4200](http://localhost:4200) to view the app in action.
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
->>>>>>> 52203fa (initial commit)
+## 📁 Project Structure
+
+```bash
+src/
+│
+├── app/
+│   ├── components/
+│   │   ├── user-list/         # Lists users
+│   │   └── user-form/         # Add/Edit user form
+│   ├── models/
+│   │   └── user.model.ts      # User interface
+│   ├── services/
+│   │   └── user.service.ts    # Business logic & localStorage
+│   ├── app-routing.module.ts
+│   └── app.module.ts
+│
+├── assets/
+├── styles.css
+└── index.html
+```
+
+---
+
+## 🧑‍💻 Tech Stack
+
+- Angular 14
+- TypeScript
+- HTML + CSS (no Angular Material)
+- LocalStorage (for persistence)
+
